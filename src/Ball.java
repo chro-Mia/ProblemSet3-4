@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 
 public class Ball {
-    private float x, y, vX, vY;
+    public float x, y, vX, vY;
     private final PApplet PARENT;
     private float diameter;
     private static int score = 0;
@@ -31,7 +31,7 @@ public class Ball {
     }
 
     public void checkCollision(Paddle p){
-        if(x >= p.getX() && x <= p.getX() + p.getWidth() && y >= p.getY() && vY > 0){
+        if(x >= p.x && x <= p.x + p.paddleWidth && y >= p.y && vY > 0){
             vY *= -1;
             score++;
         }
@@ -42,7 +42,7 @@ public class Ball {
     }
 
     public void checkGameOver(Paddle p){
-        if(y >= p.getY() + p.getHeight()){
+        if(y >= p.y + p.paddleHeight){
             vX = 0;
             vY = 0;
             PARENT.text("GAME OVER", 250, 250);

@@ -1,9 +1,8 @@
 import processing.core.PApplet;
 
 public class Paddle {
-    private float x;
-    private final float y;
-    private final float paddleHeight, paddleWidth, percentDistancePerFrame;
+    public float x, y;
+    final float paddleHeight, paddleWidth, percentDistancePerFrame;
     private final PApplet PARENT;
 
     public Paddle(PApplet parent){
@@ -29,10 +28,10 @@ public class Paddle {
     }
 
     public void move(){
-        if((PARENT.key == 'a' || PARENT.key == 'A') && PARENT.keyPressed && x >= 0){
+        if(PARENT.key == 'a' && PARENT.keyPressed && x >= 0){
             x -= PARENT.width * percentDistancePerFrame;
         }
-        if((PARENT.key == 'd' || PARENT.key == 'D') && PARENT.keyPressed && x <= PARENT.width - paddleWidth){
+        if(PARENT.key == 'd' && PARENT.keyPressed && x <= PARENT.width - paddleWidth){
             x += PARENT.width * percentDistancePerFrame;
         }
     }
@@ -47,9 +46,5 @@ public class Paddle {
 
     public float getWidth(){
         return paddleWidth;
-    }
-
-    public float getHeight(){
-        return paddleHeight;
     }
 }

@@ -18,7 +18,12 @@ public class Pong extends PApplet{
     public void setup()
     {
         background(0, 0 ,0);
-        ball = new Ball(this.width * .2f, this.height * 0.3f, 3, 6, 10, this);
+        ball = new Ball(this.width * .2f,
+                this.height * 0.3f,
+                this.width * 0.006f,
+                this.height * 0.012f,
+                10,
+                this);
         paddle = new Paddle(this);
     }
 
