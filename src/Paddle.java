@@ -1,8 +1,9 @@
 import processing.core.PApplet;
 
 public class Paddle {
-    public float x, y;
-    final float paddleHeight, paddleWidth, percentDistancePerFrame;
+    private float x;
+    private final float y;
+    private final float paddleHeight, paddleWidth, percentDistancePerFrame;
     private final PApplet PARENT;
 
     public Paddle(PApplet parent){
@@ -46,5 +47,9 @@ public class Paddle {
 
     public float getWidth(){
         return paddleWidth;
+    }
+
+    public float getHeight(){
+        return paddleHeight;
     }
 }
