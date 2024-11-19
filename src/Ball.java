@@ -7,6 +7,15 @@ public class Ball {
     private static int score = 0;
     private static boolean gameOver = false;
 
+    public Ball(PApplet parent){
+        this.PARENT = parent;
+        x = 100;
+        y = 100;
+        vX = 1;
+        vY = 1;
+        diameter = 10;
+    }
+
     public Ball(float x, float y, float vX, float vY, float diameter, PApplet parent){
         this.PARENT = parent;
         this.x = x;
@@ -46,7 +55,7 @@ public class Ball {
         if(y >= p.y + p.paddleHeight){
             vX = 0;
             vY = 0;
-            PARENT.text("GAME OVER", 250, 250);
+            PARENT.text("GAME OVER", PARENT.width / 2f, PARENT.height / 2f);
             gameOver = true;
         }
     }
