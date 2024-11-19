@@ -5,6 +5,7 @@ public class Ball {
     private final PApplet PARENT;
     private float diameter;
     private static int score = 0;
+    private static boolean gameOver = false;
 
     public Ball(float x, float y, float vX, float vY, float diameter, PApplet parent){
         this.PARENT = parent;
@@ -31,7 +32,7 @@ public class Ball {
     }
 
     public void checkCollision(Paddle p){
-        if(x >= p.x && x <= p.x + p.paddleWidth && y >= p.y && vY > 0){
+        if(x >= p.getX() - p.getWidth() / 2 && x <= p.getX() + p.getWidth() / 2f && y >= p.getY() && vY > 0){
             vY *= -1;
             score++;
         }
@@ -46,7 +47,11 @@ public class Ball {
             vX = 0;
             vY = 0;
             PARENT.text("GAME OVER", 250, 250);
+            gameOver = true;
         }
     }
 
+    public static boolean isGameOver() {
+        return gameOver;
+    }
 }

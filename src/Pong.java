@@ -38,7 +38,7 @@ public class Pong extends PApplet{
         ball.checkCollision(paddle);
 
         text(ball.getScore(), 0, 10);
-        paddle.display();
         ball.display();
+        paddle.display();
     }
 }

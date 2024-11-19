@@ -7,10 +7,10 @@ public class Paddle {
 
     public Paddle(PApplet parent){
         PARENT = parent;
-        x = PARENT.width / 2f;
         y = PARENT.height - (PARENT.height * 0.1f);
         paddleHeight = PARENT.height * 0.02f;
         paddleWidth = PARENT.width * 0.1f;
+        x = PARENT.width / 2f - paddleWidth / 2f;
         percentDistancePerFrame = 0.01f;
     }
 
@@ -28,11 +28,13 @@ public class Paddle {
     }
 
     public void move(){
-        if(PARENT.key == 'a' && PARENT.keyPressed && x >= 0){
-            x -= PARENT.width * percentDistancePerFrame;
-        }
-        if(PARENT.key == 'd' && PARENT.keyPressed && x <= PARENT.width - paddleWidth){
-            x += PARENT.width * percentDistancePerFrame;
+        if(!Ball.isGameOver()){
+            if(PARENT.key == 'a' && PARENT.keyPressed && x >= 0){
+                x -= PARENT.width * percentDistancePerFrame;
+            }
+            if(PARENT.key == 'd' && PARENT.keyPressed && x <= PARENT.width - paddleWidth){
+                x += PARENT.width * percentDistancePerFrame;
+            }
         }
     }
 
